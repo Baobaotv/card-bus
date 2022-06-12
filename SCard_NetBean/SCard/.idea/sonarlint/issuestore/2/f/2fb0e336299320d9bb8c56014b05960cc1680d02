@@ -1,0 +1,293 @@
+
+j	java:S116Ú"TRename this field "Btn_Xemtt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚•Şû
+q	java:S116Û"VRename this field "Btn_thayanh" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙáÀÌıÿÿÿÿ
+w	java:S116Ü"\Rename this field "Button_Disconnect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€Àêİÿÿÿÿÿ
+o	java:S116İ"YRename this field "Button_Unblock" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«®ğä
+t	java:S116Ş"YRename this field "Button_connect" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î„ä·øÿÿÿÿ
+q	java:S116à"VRename this field "bnt_naptien" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ÆÅÔúÿÿÿÿ
+l	java:S116á"VRename this field "btn_capnhat" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÅ¹’
+s	java:S116â"XRename this field "btn_changePIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÒÊûÿÿÿÿ
+o	java:S116ã"TRename this field "btn_clear" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş€²ÿøÿÿÿÿ
+i	java:S116ä"SRename this field "btn_init" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ·üÓ
+q	java:S116å"VRename this field "btn_sendata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÆõıøÿÿÿÿ
+s	java:S116æ"XRename this field "btn_thanhtoan" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¿Û¾ûÿÿÿÿ
+l	java:S116"VRename this field "jPanel_info" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»“ÅÁ
+h	java:S116„"RRename this field "txt_cla" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô‚«à
+h	java:S116…"RRename this field "txt_cmd" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥É³ö
+j	java:S116†"TRename this field "txt_hoten" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­‘†ì
+h	java:S116‡"RRename this field "txt_ins" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÎ“ì
+l	java:S116ˆ"QRename this field "txt_lc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§õÛ—ûÿÿÿÿ
+l	java:S116‰"QRename this field "txt_le" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹—ÊÔùÿÿÿÿ
+m	java:S116Š"WRename this field "txt_ngaysinh" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âïî
+l	java:S116‹"QRename this field "txt_p1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”Õ¶±ùÿÿÿÿ
+g	java:S116Œ"QRename this field "txt_p2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’÷ğ‰
+m	java:S116"RRename this field "txt_pin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œà¬êùÿÿÿÿ
+j	java:S116"URename this field "txt_respon" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»÷D
+n	java:S116"SRename this field "txt_sodu" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ§àËüÿÿÿÿ
+j	java:S116"TRename this field "txt_sothe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔÆ¾ª
+m	java:S116‘"RRename this field "txt_sw1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÑùüûÿÿÿÿ
+h	java:S116’"RRename this field "txt_sw2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘™¨Á
+o
+java:S1450Ú"XRemove the "Btn_Xemtt" field and declare it as a local variable in the relevant methods.(‚•Şû
+v
+java:S1450Û"ZRemove the "Btn_thayanh" field and declare it as a local variable in the relevant methods.(ÙáÀÌıÿÿÿÿ
+t
+java:S1450İ"]Remove the "Button_Unblock" field and declare it as a local variable in the relevant methods.(«®ğä
+v
+java:S1450à"ZRemove the "bnt_naptien" field and declare it as a local variable in the relevant methods.(¦ÆÅÔúÿÿÿÿ
+q
+java:S1450á"ZRemove the "btn_capnhat" field and declare it as a local variable in the relevant methods.(ÔÅ¹’
+x
+java:S1450â"\Remove the "btn_changePIN" field and declare it as a local variable in the relevant methods.(ÕÒÊûÿÿÿÿ
+t
+java:S1450ã"XRemove the "btn_clear" field and declare it as a local variable in the relevant methods.(Ş€²ÿøÿÿÿÿ
+n
+java:S1450ä"WRemove the "btn_init" field and declare it as a local variable in the relevant methods.(Ğ·üÓ
+v
+java:S1450å"ZRemove the "btn_sendata" field and declare it as a local variable in the relevant methods.(ÉÆõıøÿÿÿÿ
+x
+java:S1450æ"\Remove the "btn_thanhtoan" field and declare it as a local variable in the relevant methods.(‡¿Û¾ûÿÿÿÿ
+z
+java:S1450ç"^Remove the "jInternalFrame1" field and declare it as a local variable in the relevant methods.(ÄÒµùÿÿÿÿ
+r
+java:S1450è"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450é"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+r
+java:S1450ê"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ
+m
+java:S1450ë"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®
+r
+java:S1450ì"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ
+n
+java:S1450í"WRemove the "jLabel68" field and declare it as a local variable in the relevant methods.(†Âÿ¥
+n
+java:S1450î"WRemove the "jLabel69" field and declare it as a local variable in the relevant methods.(ÒØé”
+m
+java:S1450ï"WRemove the "jLabel70" field and declare it as a local variable in the relevant methods.(Î Ñd
+s
+java:S1450ğ"WRemove the "jLabel71" field and declare it as a local variable in the relevant methods.(ğÚ£ìıÿÿÿÿ
+n
+java:S1450ñ"WRemove the "jLabel72" field and declare it as a local variable in the relevant methods.(™îÖË
+s
+java:S1450ò"WRemove the "jLabel73" field and declare it as a local variable in the relevant methods.(Ö·‹íıÿÿÿÿ
+s
+java:S1450ó"WRemove the "jLabel74" field and declare it as a local variable in the relevant methods.(üø©”ÿÿÿÿÿ
+s
+java:S1450ô"WRemove the "jLabel75" field and declare it as a local variable in the relevant methods.(®ş™·ùÿÿÿÿ
+s
+java:S1450õ"WRemove the "jLabel76" field and declare it as a local variable in the relevant methods.(À’ì—ùÿÿÿÿ
+n
+java:S1450ö"WRemove the "jLabel77" field and declare it as a local variable in the relevant methods.(áÄÛò
+s
+java:S1450÷"WRemove the "jLabel78" field and declare it as a local variable in the relevant methods.(÷°“úüÿÿÿÿ
+s
+java:S1450ø"WRemove the "jLabel79" field and declare it as a local variable in the relevant methods.(™€É½øÿÿÿÿ
+m
+java:S1450ù"VRemove the "jLabel8" field and declare it as a local variable in the relevant methods.(å»«¢
+r
+java:S1450ú"VRemove the "jLabel9" field and declare it as a local variable in the relevant methods.(Ì’óĞşÿÿÿÿ
+r
+java:S1450û"VRemove the "jPanel1" field and declare it as a local variable in the relevant methods.(´œ½ÿÿÿÿÿ
+s
+java:S1450ü"WRemove the "jPanel11" field and declare it as a local variable in the relevant methods.(æÌÍÒüÿÿÿÿ
+r
+java:S1450ı"VRemove the "jPanel2" field and declare it as a local variable in the relevant methods.(õ òçüÿÿÿÿ
+m
+java:S1450ş"VRemove the "jPanel3" field and declare it as a local variable in the relevant methods.(Œ³èÈ
+m
+java:S1450ÿ"VRemove the "jPanel5" field and declare it as a local variable in the relevant methods.(³¡©ú
+l
+java:S1450€"VRemove the "jPanel6" field and declare it as a local variable in the relevant methods.(í›åv
+q
+java:S1450"ZRemove the "jPanel_info" field and declare it as a local variable in the relevant methods.(»“ÅÁ
+q
+java:S1450‚"ZRemove the "jSeparator1" field and declare it as a local variable in the relevant methods.(’©ìÉ
+q
+java:S1450ƒ"ZRemove the "jTextField1" field and declare it as a local variable in the relevant methods.(’É´š
+7
+java:S3010-"!Remove this assignment of "info".(ˆö»¡
+9
+java:S3010."#Remove this assignment of "thebus".(ÆóãÑ
+i	java:S100í"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ù¢Ìûÿÿÿÿ
+F
+java:S1172í"*Remove this unused method parameter "evt".(³ù¢Ìûÿÿÿÿ
+C
+java:S1125î"'Remove the unnecessary boolean literal.(ƒÕÔàùÿÿÿÿ
+i	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î›íæşÿÿÿÿ
+F
+java:S1172‰"*Remove this unused method parameter "evt".(Î›íæşÿÿÿÿ
+C
+java:S1125Š"'Remove the unnecessary boolean literal.(ÜÀ”½úÿÿÿÿ
+8
+java:S1116Š"Remove this empty statement.(ÜÀ”½úÿÿÿÿ
+d	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ƒŸÌ
+A
+java:S1172"*Remove this unused method parameter "evt".(°ƒŸÌ
+C
+java:S1125"'Remove the unnecessary boolean literal.(äù…½ÿÿÿÿÿ
+C
+java:S1125Ÿ"'Remove the unnecessary boolean literal.(øã¾¡üÿÿÿÿ
+i	java:S100´"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çõîüÿÿÿÿÿ
+F
+java:S1172´"*Remove this unused method parameter "evt".(çõîüÿÿÿÿÿ
+C
+java:S1125µ"'Remove the unnecessary boolean literal.(äù…½ÿÿÿÿÿ
+C
+java:S1125¶"'Remove the unnecessary boolean literal.(ƒ÷‚Ÿúÿÿÿÿ
+c
+java:S3252¹"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(„Àœ
+i	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷½ÑÙûÿÿÿÿ
+F
+java:S1172¿"*Remove this unused method parameter "evt".(÷½ÑÙûÿÿÿÿ
+N
+java:S1135À"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+d	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”Ö›£
+A
+java:S1172Ã"*Remove this unused method parameter "evt".(”Ö›£
+N
+java:S1135Ä"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+i	java:S100Ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ºúøÿÿÿÿ
+F
+java:S1172Ç"*Remove this unused method parameter "evt".(„ºúøÿÿÿÿ
+C
+java:S1125È"'Remove the unnecessary boolean literal.(äù…½ÿÿÿÿÿ
+i	java:S100Ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ––ışÿÿÿÿ
+W
+java:S1854á";Remove this useless assignment to local variable "datalen".(ÖÎ–ôıÿÿÿÿ
+F
+java:S1172Ô"*Remove this unused method parameter "evt".( ––ışÿÿÿÿ
+C
+java:S1125Õ"'Remove the unnecessary boolean literal.(äù…½ÿÿÿÿÿ
+C
+java:S1125Ö"'Remove the unnecessary boolean literal.(ƒ÷‚Ÿúÿÿÿÿ
+T	java:S106ß"9Replace this use of System.out or System.err by a logger.(®­œ‡ûÿÿÿÿ
+H
+java:S1481á",Remove this unused "datalen" local variable.(ÖÎ–ôıÿÿÿÿ
+O	java:S106ê"9Replace this use of System.out or System.err by a logger.(å»öæ
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾·Å²şÿÿÿÿ
+F
+java:S1172"*Remove this unused method parameter "evt".(¾·Å²şÿÿÿÿ
+=
+java:S1125‚"'Remove the unnecessary boolean literal.(Å£Î
+=
+java:S1125‚"'Remove the unnecessary boolean literal.(Å£Î
+b
+java:S3252…"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(ºĞ¨*
+i	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê„±²ùÿÿÿÿ
+F
+java:S1172‰"*Remove this unused method parameter "evt".(ê„±²ùÿÿÿÿ
+C
+java:S1125Š"'Remove the unnecessary boolean literal.(¯Öôùùÿÿÿÿ
+C
+java:S1125"'Remove the unnecessary boolean literal.(äù…½ÿÿÿÿÿ
+R	java:S125Ÿ"<This block of commented-out lines of code should be removed.(¹èé¶
+3
+java:S1116¦"Remove this empty statement.(Úå¡Ş
+i	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôöúÿÿÿÿ
+F
+java:S1172µ"*Remove this unused method parameter "evt".(ôöúÿÿÿÿ
+N
+java:S1135¶"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+i	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í¾éËøÿÿÿÿ
+F
+java:S1172¹"*Remove this unused method parameter "evt".(Í¾éËøÿÿÿÿ
+=
+java:S1125º"'Remove the unnecessary boolean literal.(Å£Î
+=
+java:S1125º"'Remove the unnecessary boolean literal.(Å£Î
+h
+java:S3252½"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(½ŞÖëüÿÿÿÿ
+d	java:S100Á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¬Ë
+A
+java:S1172Á"*Remove this unused method parameter "evt".(•¬Ë
+=
+java:S1125Â"'Remove the unnecessary boolean literal.(Å£Î
+=
+java:S1125Â"'Remove the unnecessary boolean literal.(Å£Î
+c
+java:S3252Å"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(áæ±’
+i	java:S100É"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íîáÄùÿÿÿÿ
+F
+java:S1172É"*Remove this unused method parameter "evt".(íîáÄùÿÿÿÿ
+=
+java:S1125Ê"'Remove the unnecessary boolean literal.(Å£Î
+=
+java:S1125Ê"'Remove the unnecessary boolean literal.(Å£Î
+i	java:S100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ˆá•ıÿÿÿÿ
+F
+java:S1172à"*Remove this unused method parameter "evt".(—ˆá•ıÿÿÿÿ
+=
+java:S1125á"'Remove the unnecessary boolean literal.(Å£Î
+=
+java:S1125á"'Remove the unnecessary boolean literal.(Å£Î
+h
+java:S3252ä"LUse static access with "javax.swing.WindowConstants" for "DISPOSE_ON_CLOSE".(£ûüÒşÿÿÿÿ
+F
+java:S1197ë"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ
+\
+java:S2147ú"ECombine this catch with the one at line 760, which has the same body.(¨¦Š½
+\
+java:S2147ü"ECombine this catch with the one at line 760, which has the same body.(ã€ 
+[
+java:S2147ş"ECombine this catch with the one at line 760, which has the same body.(ñÎ¯%
+T	java:S106‘"9Replace this use of System.out or System.err by a logger.(ŞÆö¯ûÿÿÿÿ
+O	java:S106´"9Replace this use of System.out or System.err by a logger.(•§¯
+i	java:S100Ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãıÜÜùÿÿÿÿ
+W	java:S125¿"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ
+R	java:S125Ñ"<This block of commented-out lines of code should be removed.(½““…
+F
+java:S1068‚"/Remove this unused "jSeparator1" private field.(’©ìÉ
+d
+java:S1192Õ"HDefine a constant instead of duplicating this literal "Tahoma" 10 times.(êÄÌˆüÿÿÿÿ
+g
+java:S1192Š"KDefine a constant instead of duplicating this literal "Agency FB" 12 times.(Ğ”˜•ûÿÿÿÿ
+p
+java:S1192±"TDefine a constant instead of duplicating this literal "ChÆ°a connect tháº»" 9 times.(ü›¬şÿÿÿÿ
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áã‘üÿÿÿÿ
+?
+java:S1604û"(Make this anonymous inner class a lambda(õé±‘
+?
+java:S1604­"(Make this anonymous inner class a lambda(ä­Î
+D
+java:S1604É"(Make this anonymous inner class a lambda(¡âåïşÿÿÿÿ
+?
+java:S1604Ú"(Make this anonymous inner class a lambda(ãÂˆ¤
+?
+java:S1604â"(Make this anonymous inner class a lambda(¯®·¿
+D
+java:S1604ì"(Make this anonymous inner class a lambda(¹ö¦ÿÿÿÿÿ
+D
+java:S1604ô"(Make this anonymous inner class a lambda(Ù™ª©úÿÿÿÿ
+?
+java:S1604ü"(Make this anonymous inner class a lambda(…Ü×Ô
+D
+java:S1604„"(Make this anonymous inner class a lambda(ËÈùÆúÿÿÿÿ
+?
+java:S1604Œ"(Make this anonymous inner class a lambda(€¦‡È
+?
+java:S1604”"(Make this anonymous inner class a lambda(âğó×
+D
+java:S1604œ"(Make this anonymous inner class a lambda(¦¬¢ƒıÿÿÿÿ
+?
+java:S1604¤"(Make this anonymous inner class a lambda(—·Ğ
+D
+java:S1604¬"(Make this anonymous inner class a lambda(’¬‚Òşÿÿÿÿ
+?
+java:S1604´"(Make this anonymous inner class a lambda(Üô¡·
+D
+java:S1604…"(Make this anonymous inner class a lambda(¨í¡§úÿÿÿÿ
+7
+java:S1643="Use a StringBuilder instead.(èÒŸıÿÿÿÿ
+7
+java:S1643M"Use a StringBuilder instead.(èÒŸıÿÿÿÿ
+p
+java:S1104'"UMake rsaPubKey a static final constant or non-public and provide accessors if needed.(É³‘şÿÿÿÿ
+F
+java:S5411Ÿ"*Use the primitive boolean expression here.(øã¾¡üÿÿÿÿ
+F
+java:S5411¶"*Use the primitive boolean expression here.(ƒ÷‚Ÿúÿÿÿÿ
+F
+java:S5411Ö"*Use the primitive boolean expression here.(ƒ÷‚Ÿúÿÿÿÿ
+F
+java:S5411Š"*Use the primitive boolean expression here.(¯Öôùùÿÿÿÿ

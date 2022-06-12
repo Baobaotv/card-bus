@@ -1,0 +1,67 @@
+
+s	java:S116‘"XRename this field "Button_getava" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³êëùÿÿÿÿ
+l	java:S116“"QRename this field "btn_ok" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏĞ´şÿÿÿÿ
+m	java:S116œ"WRename this field "txt_checkpin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö®Œ
+i	java:S116"TRename this field "txt_hoten" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¼šs
+g	java:S116"QRename this field "txt_ns" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ºñ
+m	java:S116Ÿ"RRename this field "txt_pin" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œà¬êùÿÿÿÿ
+x
+java:S1450‘"\Remove the "Button_getava" field and declare it as a local variable in the relevant methods.(³êëùÿÿÿÿ
+q
+java:S1450“"URemove the "btn_ok" field and declare it as a local variable in the relevant methods.(ÏĞ´şÿÿÿÿ
+r
+java:S1450”"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450•"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+r
+java:S1450–"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ
+m
+java:S1450—"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®
+m
+java:S1450˜"VRemove the "jLabel8" field and declare it as a local variable in the relevant methods.(å»«¢
+r
+java:S1450™"VRemove the "jPanel1" field and declare it as a local variable in the relevant methods.(´œ½ÿÿÿÿÿ
+r
+java:S1450š"VRemove the "jPanel2" field and declare it as a local variable in the relevant methods.(õ òçüÿÿÿÿ
+m
+java:S1450›"QRemove the "sd" field and declare it as a local variable in the relevant methods.(ÌÁÈöûÿÿÿÿ
+i	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËĞ…òşÿÿÿÿ
+F
+java:S1172Ã"*Remove this unused method parameter "evt".(ËĞ…òşÿÿÿÿ
+N
+java:S1135Ä"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+E
+java:S2140Ç")Use "java.util.Random.nextInt()" instead.(¶ëÂñøÿÿÿÿ
+i	java:S100É"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¯Åıÿÿÿÿ
+F
+java:S1172É"*Remove this unused method parameter "evt".(ˆ¯Åıÿÿÿÿ
+v
+java:S2159Ì"ZRemove this call to "equals"; comparisons between an array and a type always return false.(ŒÚ£¥ÿÿÿÿÿ
+v
+java:S2159Ì"ZRemove this call to "equals"; comparisons between an array and a type always return false.(ŒÚ£¥ÿÿÿÿÿ
+C
+java:S1125Ğ"'Remove the unnecessary boolean literal.(ê•Ñˆıÿÿÿÿ
+c	java:S100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÓ¬z
+T
+java:S1854ë"8Remove this useless assignment to local variable "path".(‚€œûÿÿÿÿ
+@
+java:S1172æ"*Remove this unused method parameter "evt".(ÁÓ¬z
+E
+java:S1481ë")Remove this unused "path" local variable.(‚€œûÿÿÿÿ
+R	java:S125ö"<This block of commented-out lines of code should be removed.(×Şã
+d	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üà—‰
+A
+java:S1172ı"*Remove this unused method parameter "evt".(üà—‰
+N
+java:S1135ş"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+R	java:S125ƒ"<This block of commented-out lines of code should be removed.(½Óâ×
+]
+java:S1192H"GDefine a constant instead of duplicating this literal "Tahoma" 6 times.(¸Ôî
+C
+java:S1604P"(Make this anonymous inner class a lambda(éÃÆŠÿÿÿÿÿ
+C
+java:S1604X"(Make this anonymous inner class a lambda(İâ‹§üÿÿÿÿ
+C
+java:S1604d"(Make this anonymous inner class a lambda(‹İõØüÿÿÿÿ
+>
+java:S1604n"(Make this anonymous inner class a lambda( åÖİ
