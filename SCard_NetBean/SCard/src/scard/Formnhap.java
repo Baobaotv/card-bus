@@ -208,14 +208,16 @@ public class Formnhap extends javax.swing.JFrame {
         }else if((pin.equals(checkpin)) != true) {
             JOptionPane.showMessageDialog(this, "Xác nhận mã pin sai");
         } else {
-        int i = getRandomNumber(100000,999999); 
-        String sothe = Integer.toString(i);
+
         String hoten = txt_hoten.getText();
         String ngaysinh = txt_ns.getText();
-        info.setSothe(sothe);
         info.setHoten(hoten);
         info.setNgaysinh(ngaysinh);
         info.setPin(pin);
+        DataConnection dtconnecttion = new DataConnection();
+        Long id = dtconnecttion.save(info);
+        info.setSothe(id.toString());
+        
         BusForm.info = this.info;
         JOptionPane.showMessageDialog(null, "Khởi tạo nội dung thẻ thành công.");
         

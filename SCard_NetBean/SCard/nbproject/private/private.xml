@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/info.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/updatePIN.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/BusForm.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/updateInfoForm.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/Formnhap.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/thanhtoan.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/theBus.java</file>
-            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/BusCard/BusCard/SCard_NetBean/SCard/src/scard/Naptien.java</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/scard/info.java</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/Icon/images/icons8-home-30.png</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/scard/Formnhap.java</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/scard/BusForm.java</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/scard/DataConnection.java</file>
+            <file>file:/D:/Downloads/HOC_NAM_4/The-thong-minh/btl/card-bus/SCard_NetBean/SCard/src/scard/updateInfoForm.java</file>
         </group>
     </open-files>
 </project-private>

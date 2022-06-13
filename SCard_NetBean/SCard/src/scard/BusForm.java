@@ -34,8 +34,8 @@ public class BusForm extends javax.swing.JFrame {
     static info info;
     static theBus thebus;
     private Boolean input= false;
-    private boolean cardready= false;
-    private boolean connected= false;
+    private static boolean cardready= false;
+    private static boolean connected= false;
     public byte[] rsaPubKey = new byte[128];
     
     /**
@@ -107,7 +107,6 @@ public class BusForm extends javax.swing.JFrame {
         txt_sothe = new javax.swing.JLabel();
         txt_hoten = new javax.swing.JLabel();
         txt_ngaysinh = new javax.swing.JLabel();
-        Btn_thayanh = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
@@ -246,15 +245,6 @@ public class BusForm extends javax.swing.JFrame {
         txt_ngaysinh.setText("null");
         jPanel_info.add(txt_ngaysinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 170, 20));
 
-        Btn_thayanh.setBackground(new java.awt.Color(51, 204, 0));
-        Btn_thayanh.setText("Thay ảnh");
-        Btn_thayanh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_thayanhActionPerformed(evt);
-            }
-        });
-        jPanel_info.add(Btn_thayanh, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 80, 30));
-
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -357,7 +347,7 @@ public class BusForm extends javax.swing.JFrame {
             }
         });
 
-        jPanel5.setBackground(new java.awt.Color(54, 33, 89));
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_init.setText("Khởi tạo thẻ");
@@ -440,7 +430,7 @@ public class BusForm extends javax.swing.JFrame {
         });
         jPanel5.add(bnt_naptien, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 160, 30));
 
-        jPanel6.setBackground(new java.awt.Color(122, 72, 221));
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -531,7 +521,7 @@ public class BusForm extends javax.swing.JFrame {
         byte[] dataRes = thebus.resAPDU.getData();
         int le = thebus.resAPDU.getNr();
         setResponseAPDU(dataRes, (short)le);//hien thi du lieu phan hoi tu applet
-        Button_connect.setText("Đang kết nối...");
+        Button_connect.setText("Kết nối thành công");
         Button_connect.setBackground(Color.green);
         Button_Disconnect.setText("Ngắt kết nối");
         Button_Disconnect.setBackground(Color.gray);
@@ -670,7 +660,7 @@ public class BusForm extends javax.swing.JFrame {
                 int le = thebus.resAPDU.getNr();
                 setResponseAPDU(dataRes, (byte)le);//hien thi du lieu phan hoi tu applet
                 String tach = new String(dataRes) ;
-                //System.out.print("a:"+tach);
+                System.out.print("DATA NHAN:"+tach);
                 String[] a = tach.split(":");
                 String st = a[0];
                 String ht = a[1];
@@ -698,7 +688,7 @@ public class BusForm extends javax.swing.JFrame {
 
     private void btn_capnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_capnhatActionPerformed
        if(connected == true && cardready == true){
-                updateInfoForm updateinfo= new updateInfoForm(txt_sothe.getText(), txt_hoten.getText(),txt_ngaysinh.getText());
+                updateInfoForm updateinfo= new updateInfoForm(txt_sothe.getText(), txt_hoten.getText(),txt_ngaysinh.getText(), info.getAvatar());
                 updateinfo.setVisible(true);
                 updateinfo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }else JOptionPane.showMessageDialog(null, "Chưa connect thẻ");
@@ -711,29 +701,6 @@ public class BusForm extends javax.swing.JFrame {
                 updatepin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }else JOptionPane.showMessageDialog(null, "Chưa connect thẻ");
     }//GEN-LAST:event_btn_changePINActionPerformed
-
-    private void Btn_thayanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_thayanhActionPerformed
-        if(connected == true && cardready == true){
-        JFileChooser fc = new JFileChooser();
-        int returnValue = fc.showOpenDialog(this);
-        if(returnValue == JFileChooser.APPROVE_OPTION){
-            File file = fc.getSelectedFile();
-            BufferedImage bimage;
-            try{
-                bimage = ImageIO.read(file);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ImageIO.write(bimage, "jpg", baos);
-                byte[] img = baos.toByteArray();
-                setImage(img);
-                getImage(img);
-                info.setAvatar(img);
-                JOptionPane.showMessageDialog(this, "Thay ảnh thành công.");
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-        }
-        }else JOptionPane.showMessageDialog(null, "Chưa connect thẻ.");
-    }//GEN-LAST:event_Btn_thayanhActionPerformed
 
     private void btn_thanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_thanhtoanActionPerformed
         if(connected == true && cardready == true){
@@ -851,9 +818,26 @@ public class BusForm extends javax.swing.JFrame {
         }else return 2;
     }
 
+    public static boolean isCardready() {
+        return cardready;
+    }
+
+    public static void setCardready(boolean cardready) {
+        BusForm.cardready = cardready;
+    }
+
+    public static boolean isConnected() {
+        return connected;
+    }
+
+    public static void setConnected(boolean connected) {
+        BusForm.connected = connected;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Xemtt;
-    private javax.swing.JButton Btn_thayanh;
     private javax.swing.JButton Button_Disconnect;
     private javax.swing.JButton Button_Unblock;
     private javax.swing.JButton Button_connect;

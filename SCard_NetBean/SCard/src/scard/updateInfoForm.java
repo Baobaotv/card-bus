@@ -5,8 +5,20 @@
  */
 package scard;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static scard.BusForm.thebus;
 /**
  *
  * @author Long
@@ -14,21 +26,25 @@ import javax.swing.JOptionPane;
 public class updateInfoForm extends javax.swing.JFrame {
     private theBus thebus;
     private String sothe, hoten, ngaysinh;
+     private byte[] avatar;
     /**
      * Creates new form updateInfoForm
      */
-    public updateInfoForm(String sothe, String hoten, String ngaysinh) {
+    public updateInfoForm(String sothe, String hoten, String ngaysinh,byte[] avatar) {
         initComponents();
         this.thebus = BusForm.thebus;
         this.sothe = sothe;
         this.hoten = hoten;
         this.ngaysinh = ngaysinh;
-       
-        txt_st.setText(sothe);
+       this.avatar = avatar;
+       if (this.avatar != null && this.avatar.length != 0) {
+          getImage(avatar);
+       }
+//        txt_st.setText(sothe);
         txt_ht.setText(hoten);
         txt_ns.setText(ngaysinh);
        
-        txt_st.setEditable(false);
+//        txt_st.setEditable(false);
     }
 
     /**
@@ -40,20 +56,19 @@ public class updateInfoForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_st = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_ht = new javax.swing.JTextField();
         txt_ns = new javax.swing.JTextField();
         btn_ok = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        anhthe = new javax.swing.JLabel();
+        Btn_thayanh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(400, 350));
         setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -77,11 +92,9 @@ public class updateInfoForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("Số thẻ:");
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel1.setBackground(new java.awt.Color(54, 33, 89));
-
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cập nhật thông tin");
@@ -100,57 +113,63 @@ public class updateInfoForm extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
         );
 
+        anhthe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Btn_thayanh.setBackground(new java.awt.Color(51, 204, 0));
+        Btn_thayanh.setText("Thay ảnh");
+        Btn_thayanh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_thayanhActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel6)
-                        .addGap(31, 31, 31)
-                        .addComponent(txt_st, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(txt_ht, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel3)
-                        .addGap(23, 23, 23)
-                        .addComponent(txt_ns, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(anhthe, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_ns, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_ht, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(Btn_thayanh, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
+                .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6))
-                    .addComponent(txt_st, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txt_ht, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_ns, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(0, 46, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(anhthe, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2))
-                    .addComponent(txt_ht, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3))
-                    .addComponent(txt_ns, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addComponent(btn_ok))
+                    .addComponent(Btn_thayanh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_ok))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -161,7 +180,7 @@ public class updateInfoForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_htActionPerformed
 
     private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
-        String sothe = txt_st.getText();
+        String sothe = this.sothe;
         String hoten = txt_ht.getText();
         String ngaysinh = txt_ns.getText();
         String arraysend = sothe.concat(".").concat(hoten).concat(".").concat(ngaysinh);
@@ -171,24 +190,100 @@ public class updateInfoForm extends javax.swing.JFrame {
         thebus.sendAPDUtoApplet(cmd, data);
         if((thebus.resAPDU.getSW1() == 0x90) && (thebus.resAPDU.getSW2() == 0x00)){
             JOptionPane.showMessageDialog(this, "Cập nhật thông tin thành công.");
-            txt_st.setText("");
+//            txt_st.setText("");
             txt_ht.setText("");
             txt_ns.setText("");
             setVisible(false);
         }else JOptionPane.showMessageDialog(this, "Chưa cập nhật thành công.");
     }//GEN-LAST:event_btn_okActionPerformed
 
+    private void Btn_thayanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_thayanhActionPerformed
+        if(BusForm.isConnected() == true && BusForm.isCardready() == true){
+            JFileChooser fc = new JFileChooser();
+            int returnValue = fc.showOpenDialog(this);
+            if(returnValue == JFileChooser.APPROVE_OPTION){
+                File file = fc.getSelectedFile();
+                BufferedImage bimage;
+                try{
+                    bimage = ImageIO.read(file);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ImageIO.write(bimage, "jpg", baos);
+                    byte[] img = baos.toByteArray();
+                    setImage(img);
+                    getImage(img);
+                    BusForm.info.setAvatar(img);
+                    JOptionPane.showMessageDialog(this, "Thay ảnh thành công.");
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }else JOptionPane.showMessageDialog(null, "Chưa connect thẻ.");
+    }//GEN-LAST:event_Btn_thayanhActionPerformed
+
+     private void setImage(byte [] img){
+        if(img == null) return;
+        byte[] cmd = {(byte) 0xA0, (byte) 0x12, (byte) 0x01, (byte) 0x00};
+        thebus.sendAPDUtoApplet(cmd);
+        int sendlen = img.length;
+        System.out.println("ảnh gửi:" +img);
+        byte[] cmnd = {(byte) 0xA0, (byte) 0x12, (byte) 0x02, (byte) 0x00};
+        int pointer = 0;
+        byte[] temp = new byte[255];
+        int datalen = 255;
+        while(sendlen >0){
+            System.arraycopy(img, pointer, temp, 0, datalen);
+            thebus.sendAPDUtoApplet(cmnd, temp);
+            pointer += 255;
+            sendlen -=255;
+            if(sendlen <255){
+                datalen = sendlen;
+            }
+        }
+    }
+    private void getImage(byte [] img){
+        if(img == null) return;
+        try {
+        byte[] cmd = {(byte) 0xA0, (byte) 0x13, (byte) 0x01, (byte) 0x00};
+        thebus.sendAPDUtoApplet(cmd);
+        //do dai du lieu se nhan
+        int sendlen = img.length;
+        byte[] cmnd = {(byte) 0xA0, (byte) 0x13, (byte) 0x02, (byte) 0x00};
+        //nhan du lieu anh
+        byte[] resimg= new byte[sendlen];
+        int pointer=0;
+        int datalen = 255;
+        while(sendlen >0){
+            thebus.sendAPDUtoApplet(cmnd);
+            byte[] temp = thebus.resAPDU.getData();
+            System.arraycopy(temp, 0, resimg, pointer, datalen);
+            pointer += 255;
+            sendlen -= 255;
+            if(sendlen<255){
+                datalen = sendlen;
+            }
+        }
+        System.out.println("ảnh res:" +resimg);
+        ByteArrayInputStream bais= new ByteArrayInputStream(resimg);
+        BufferedImage b;
+        b = ImageIO.read(bais);
+        ImageIcon icon= new ImageIcon(b.getScaledInstance(anhthe.getWidth(),anhthe.getHeight(), Image.SCALE_SMOOTH));
+        icon.getImage();
+        anhthe.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(BusForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_thayanh;
+    private javax.swing.JLabel anhthe;
     private javax.swing.JButton btn_ok;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_ht;
     private javax.swing.JTextField txt_ns;
-    private javax.swing.JTextField txt_st;
     // End of variables declaration//GEN-END:variables
 
 }

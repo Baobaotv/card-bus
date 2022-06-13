@@ -196,41 +196,30 @@ public class SCard extends Applet
 		pin.update(pintemp, (short)0, (byte)pinlen);
 		//ma hoa rsaPriKey
 		encrypt_AesCipher(apdu,rsaPriKey, (short)rsaPriKeyLen);
-		//ma hoa thong tin
-		encrypt_AesCipher(apdu,sothe,sothelen);
-		encrypt_AesCipher(apdu,hoten,hotenlen);
-		encrypt_AesCipher(apdu,ngaysinh,ngaysinhlen);
-		//gia ma thong tin
-		decrypt_AesCipher(apdu, sothe, sothelen,tempBuffer, (short)0);
-		decrypt_AesCipher(apdu, hoten, hotenlen,tempBuffer, (short)(sothelen+1));
-		decrypt_AesCipher(apdu, ngaysinh, ngaysinhlen,tempBuffer, (short)(sothelen+hotenlen+2));
+
 		Util.arrayFillNonAtomic(tempBuffer, sothelen, (short) 1, (byte)0x3A);
 		//dau :
 		Util.arrayFillNonAtomic(tempBuffer, (short) (sothelen + hotenlen + 1), (short) 1, (byte) 0x3A);
 		Util.arrayFillNonAtomic(tempBuffer, (short) (sothelen + hotenlen + ngaysinhlen + 2), (short) 1, (byte) 0x3A);
-		//Util.setShort(tempBuffer,(short)(sothelen + hotenlen + ngaysinhlen + loaithelen + thoihanlen + 5), sodu);
+
 		short totallen = (short)(sothelen+hotenlen+ngaysinhlen+2);
-		//Util.arrayCopy(tempBuffer, (short) 0, buffer, (short)0, (short)totallen);
-        //apdu.setOutgoingAndSend((short) 0, (short)(1));
-        //short totallen = (short)(sothelen+hotenlen+ngaysinhlen+loaithelen+thoihanlen+4);
+	
 		Util.arrayCopy(tempBuffer, (short)0, buffer, (short)0, (short)(totallen));
 		apdu.setOutgoingAndSend((short)0,(short)(totallen));
 	}
     private void get_info(APDU apdu){
 	    byte[] buffer = apdu.getBuffer();
         short len= (short)(sothelen+ hotenlen+ngaysinhlen+2);
-        decrypt_AesCipher(apdu, sothe, sothelen, tempBuffer, (short)0);
-		decrypt_AesCipher(apdu, hoten, hotenlen, tempBuffer,(short)(sothelen+1));
-		decrypt_AesCipher(apdu, ngaysinh, ngaysinhlen,tempBuffer, (short)(sothelen+hotenlen+2));
-        // Util.arrayCopy(sothe,(short)0, tempBuffer, (short)0, sothelen);
-        // Util.arrayCopy(hoten,(short)0, tempBuffer, (short)(sothelen+1), hotenlen);
-        // Util.arrayCopy(ngaysinh,(short)0, tempBuffer, (short)(sothelen + hotenlen+ 2), ngaysinhlen);
-        // Util.arrayCopy(loaithe,(short)0, tempBuffer, (short)(sothelen+hotenlen+ngaysinhlen+3), loaithelen);
-        // Util.arrayCopy(thoihan,(short)0, tempBuffer, (short)(sothelen+hotenlen+ngaysinhlen+loaithelen+4), thoihanlen);
+     
+         Util.arrayCopy(sothe,(short)0, tempBuffer, (short)0, sothelen);
+         Util.arrayCopy(hoten,(short)0, tempBuffer, (short)(sothelen+1), hotenlen);
+         Util.arrayCopy(ngaysinh,(short)0, tempBuffer, (short)(sothelen + hotenlen+ 2), ngaysinhlen);
+
+     
         Util.arrayFillNonAtomic(tempBuffer, sothelen, (short) 1, (byte) 0x3A);//dau :
 		Util.arrayFillNonAtomic(tempBuffer, (short)(sothelen+hotenlen+1), (short)1, (byte) 0x3A);
 		Util.arrayFillNonAtomic(tempBuffer, (short) (sothelen+ hotenlen+ngaysinhlen+2), (short) 1, (byte) 0x3A);
-		//Util.setShort(tempBuffer, (short)(sothelen+hotenlen+ngaysinhlen+loaithelen+thoihanlen+5),sodu);
+	
 		Util.arrayCopy(tempBuffer, (short)0, buffer, (short) 0, len);
         apdu.setOutgoingAndSend((short)0, len);
 }
@@ -609,9 +598,7 @@ public class SCard extends Applet
 		Util.arrayCopy(tempBuffer, (short)0, sothe, (short)0,sothelen);
 		Util.arrayCopy(tempBuffer, (short)(t1+1), hoten, (short)0,hotenlen);
 		Util.arrayCopy(tempBuffer, (short)(t2+1), ngaysinh, (short)0,ngaysinhlen);
-		encrypt_AesCipher(apdu,sothe,sothelen);
-		encrypt_AesCipher(apdu,hoten,hotenlen);
-		encrypt_AesCipher(apdu,ngaysinh,ngaysinhlen);
+	
     }
     
     private void getsodu(APDU apdu){
