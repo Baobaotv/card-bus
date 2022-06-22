@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -247,7 +248,8 @@ public class Formnhap extends javax.swing.JFrame {
                 ImageIcon icon= new ImageIcon(bimage.getScaledInstance(anh.getWidth(), anh.getHeight(), Image.SCALE_SMOOTH));
                 icon.getImage();
                 anh.setIcon(icon);
-                info.setAvatar(img);
+                System.out.println("Dương dan anh"+path);
+                info.setAvatar(path.getBytes(StandardCharsets.UTF_8));
                 //System.out.println("ime:"+img);
             }catch(IOException e){
                 e.printStackTrace();

@@ -11,6 +11,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -203,25 +204,19 @@ public class updateInfoForm extends javax.swing.JFrame {
             int returnValue = fc.showOpenDialog(this);
             if(returnValue == JFileChooser.APPROVE_OPTION){
                 File file = fc.getSelectedFile();
+                String path = file.getAbsolutePath();
                 BufferedImage bimage;
-                try{
-                    bimage = ImageIO.read(file);
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    ImageIO.write(bimage, "jpg", baos);
-                    byte[] img = baos.toByteArray();
-                    setImage(img);
-                    getImage(img);
-                    BusForm.info.setAvatar(img);
-                    JOptionPane.showMessageDialog(this, "Thay ảnh thành công.");
-                }catch(IOException e){
-                    e.printStackTrace();
-                }
+                byte[] img = path.getBytes(StandardCharsets.UTF_8);
+                setImage(img);
+                getImage(img);
+                BusForm.info.setAvatar(img);
+                JOptionPane.showMessageDialog(this, "Thay ảnh thành công.");
             }
         }else JOptionPane.showMessageDialog(null, "Chưa connect thẻ.");
     }//GEN-LAST:event_Btn_thayanhActionPerformed
 
      private void setImage(byte [] img){
-        if(img == null) return;
+         if(img == null) return;
         byte[] cmd = {(byte) 0xA0, (byte) 0x12, (byte) 0x01, (byte) 0x00};
         thebus.sendAPDUtoApplet(cmd);
         int sendlen = img.length;
@@ -230,18 +225,11 @@ public class updateInfoForm extends javax.swing.JFrame {
         int pointer = 0;
         byte[] temp = new byte[255];
         int datalen = 255;
-        while(sendlen >0){
-            System.arraycopy(img, pointer, temp, 0, datalen);
-            thebus.sendAPDUtoApplet(cmnd, temp);
-            pointer += 255;
-            sendlen -=255;
-            if(sendlen <255){
-                datalen = sendlen;
-            }
-        }
+        thebus.sendAPDUtoApplet(cmnd, img);
+        
     }
     private void getImage(byte [] img){
-        if(img == null) return;
+       if(img == null) return;
         try {
         byte[] cmd = {(byte) 0xA0, (byte) 0x13, (byte) 0x01, (byte) 0x00};
         thebus.sendAPDUtoApplet(cmd);
@@ -249,23 +237,16 @@ public class updateInfoForm extends javax.swing.JFrame {
         int sendlen = img.length;
         byte[] cmnd = {(byte) 0xA0, (byte) 0x13, (byte) 0x02, (byte) 0x00};
         //nhan du lieu anh
-        byte[] resimg= new byte[sendlen];
+        byte[] resimg= new byte[255];
         int pointer=0;
         int datalen = 255;
-        while(sendlen >0){
-            thebus.sendAPDUtoApplet(cmnd);
+         thebus.sendAPDUtoApplet(cmnd);
             byte[] temp = thebus.resAPDU.getData();
-            System.arraycopy(temp, 0, resimg, pointer, datalen);
-            pointer += 255;
-            sendlen -= 255;
-            if(sendlen<255){
-                datalen = sendlen;
-            }
-        }
-        System.out.println("ảnh res:" +resimg);
-        ByteArrayInputStream bais= new ByteArrayInputStream(resimg);
+        System.out.println("ảnh res:" +new String(temp, StandardCharsets.UTF_8));
+        ByteArrayInputStream bais= new ByteArrayInputStream(temp);
+        File f = new File(new String(temp, StandardCharsets.UTF_8));
         BufferedImage b;
-        b = ImageIO.read(bais);
+        b = ImageIO.read(f);
         ImageIcon icon= new ImageIcon(b.getScaledInstance(anhthe.getWidth(),anhthe.getHeight(), Image.SCALE_SMOOTH));
         icon.getImage();
         anhthe.setIcon(icon);

@@ -5,13 +5,9 @@
 </PkgNodes>
 </ExpandNodes>
 <FileNodes>
-<fnode>
-<fileName>src\SCard\test.java</fileName>
-<line>0</line>
-</fnode>
 <ActiveFile>
 <fileName>src\SCard\SCard.java</fileName>
-<line>71</line>
+<line>531</line>
 </ActiveFile>
 </FileNodes>
 </StateInfo>

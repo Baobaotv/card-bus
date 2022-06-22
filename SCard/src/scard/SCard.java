@@ -11,8 +11,8 @@ public class SCard extends Applet
 	private static short sodu, pinlen, sothelen, hotenlen, ngaysinhlen, count;
 	private final static byte CLA = (byte) 0xA0;
 	//image
-	private byte[] image1,image2,image3,image4;
-    private short imagelen1,imagelen2,imagelen3,imagelen4, lenback1, lenback2, lenback3,lenback4, pointer1,pointer2, pointer3, pointer4;
+	private byte[] image1;
+    private short imagelen1;
     public static final short MAX_LENGTH = (short)(0x7FFF);
     
 	//khai bao INS apdu lenh
@@ -56,9 +56,7 @@ public class SCard extends Applet
 		sodu = 0;
 		// image 
 		image1 = new byte[MAX_LENGTH];
-		image2 = new byte[MAX_LENGTH];
-		image3 = new byte[MAX_LENGTH];
-		image4 = new byte[MAX_LENGTH];
+		
 		//aes
 		md5 = MessageDigest.getInstance(MessageDigest.ALG_MD5,false);
 		aescipher = Cipher.getInstance(Cipher.ALG_AES_BLOCK_128_ECB_NOPAD, false);
@@ -94,9 +92,7 @@ public class SCard extends Applet
 		case INS_SETIMG:
 			if(buf[ISO7816.OFFSET_P1] == 0x01){
 				imagelen1 = 0;
-				imagelen2 = 0;
-				imagelen3 = 0;
-				imagelen4 = 0;
+				
 			}
 			if(buf[ISO7816.OFFSET_P1] == 0x02){
 				set_img(apdu, len);
@@ -104,23 +100,7 @@ public class SCard extends Applet
 			break;
 		case INS_GETIMG:
 			if(buf[ISO7816.OFFSET_P1] == 0x01){
-				lenback1= imagelen1;
-				lenback2= imagelen2;
-				lenback3= imagelen3;
-				lenback4= imagelen4;
-				pointer1=0;
-				pointer2=0;
-				pointer3=0;
-				pointer4=0;
-				if(imagelen2 ==0){
-					lenback2=1;
-				}
-				if(imagelen3==0){
-					lenback3=1;
-				}
-				if(imagelen4==0){
-					lenback4=1;
-				}
+				
 			}
 			if(buf[ISO7816.OFFSET_P1] ==0x02){
 				get_img(apdu);
@@ -160,10 +140,12 @@ public class SCard extends Applet
 	
 	private void init_info(APDU apdu, short len){
 		short t1,t2,t3;
+		// bien ln lt dùng  luuw giá tr  dài d liu cu sothe, hoten,ngaysinh
 		t1=t2=t3= 0;
 		byte[] buffer = apdu.getBuffer();
 		Util.arrayCopy(buffer, ISO7816.OFFSET_CDATA, tempBuffer, (short)0, len);
 		for(short i=0; i<len ; i++){
+			// so sanh voi dau '.'
 			if(tempBuffer[i] == (byte) 0x2e){
 				if(t1 ==0){
 					t1 = i;
@@ -196,7 +178,14 @@ public class SCard extends Applet
 		pin.update(pintemp, (short)0, (byte)pinlen);
 		//ma hoa rsaPriKey
 		encrypt_AesCipher(apdu,rsaPriKey, (short)rsaPriKeyLen);
-
+		//ma hoa thong tin
+		encrypt_AesCipher(apdu,sothe,sothelen);
+		encrypt_AesCipher(apdu,hoten,hotenlen);
+		encrypt_AesCipher(apdu,ngaysinh,ngaysinhlen);
+		//gia ma thong tin
+		decrypt_AesCipher(apdu, sothe, sothelen,tempBuffer, (short)0);
+		decrypt_AesCipher(apdu, hoten, hotenlen,tempBuffer, (short)(sothelen+1));
+		decrypt_AesCipher(apdu, ngaysinh, ngaysinhlen,tempBuffer, (short)(sothelen+hotenlen+2));
 		Util.arrayFillNonAtomic(tempBuffer, sothelen, (short) 1, (byte)0x3A);
 		//dau :
 		Util.arrayFillNonAtomic(tempBuffer, (short) (sothelen + hotenlen + 1), (short) 1, (byte) 0x3A);
@@ -210,10 +199,12 @@ public class SCard extends Applet
     private void get_info(APDU apdu){
 	    byte[] buffer = apdu.getBuffer();
         short len= (short)(sothelen+ hotenlen+ngaysinhlen+2);
-     
-         Util.arrayCopy(sothe,(short)0, tempBuffer, (short)0, sothelen);
-         Util.arrayCopy(hoten,(short)0, tempBuffer, (short)(sothelen+1), hotenlen);
-         Util.arrayCopy(ngaysinh,(short)0, tempBuffer, (short)(sothelen + hotenlen+ 2), ngaysinhlen);
+		decrypt_AesCipher(apdu, sothe, sothelen, tempBuffer, (short)0);
+		decrypt_AesCipher(apdu, hoten, hotenlen, tempBuffer,(short)(sothelen+1));
+		decrypt_AesCipher(apdu, ngaysinh, ngaysinhlen,tempBuffer, (short)(sothelen+hotenlen+2));
+         // Util.arrayCopy(sothe,(short)0, tempBuffer, (short)0, sothelen);
+         // Util.arrayCopy(hoten,(short)0, tempBuffer, (short)(sothelen+1), hotenlen);
+         // Util.arrayCopy(ngaysinh,(short)0, tempBuffer, (short)(sothelen + hotenlen+ 2), ngaysinhlen);
 
      
         Util.arrayFillNonAtomic(tempBuffer, sothelen, (short) 1, (byte) 0x3A);//dau :
@@ -241,73 +232,19 @@ public class SCard extends Applet
     private void set_img(APDU apdu, short len){
     	byte[] buf = apdu.getBuffer();
 		short offData = apdu.getOffsetCdata();
-        if((short)(MAX_LENGTH-imagelen3)<255){
-	        Util.arrayCopy(buf, offData, image4, imagelen4, len);
-	        imagelen4 += len;
-        }else{
-            if((short)(MAX_LENGTH-imagelen2)<255){
-	            Util.arrayCopy(buf, offData, image3, imagelen3, len);
-				imagelen3 += len;
-             }else{
-	           	if((short)(MAX_LENGTH-imagelen1)<255){
-					Util.arrayCopy(buf, offData, image2, imagelen2, len);
-					imagelen2 += len;
-				}else{
-					Util.arrayCopy(buf, offData, image1, imagelen1, len);
+		Util.arrayCopy(buf, offData, image1, imagelen1, len);
 					imagelen1 += len;
-				}
-           	 }
-           }
+        
 	    }
 	    
     private void get_img(APDU apdu){
     	byte[] buf = apdu.getBuffer();
 		short datalen = 255;
-        if(lenback3==0){
-        	if(lenback4 <255){
-	        	datalen = lenback4;
-        	}
-	        apdu.setOutgoing();
-			apdu.setOutgoingLength((short)255);
-			Util.arrayCopy(image4, (pointer4), buf, (short)0, datalen);
-			apdu.sendBytes((short)0, datalen);
-			pointer4+=  (short)255;
-			lenback4 -= (short)(255);
-        }else{
-	        if(lenback2==0){
-	        	if(lenback3 <255){
-					datalen = lenback3;
-				}
-				apdu.setOutgoing();
-				apdu.setOutgoingLength((short)255);
-				Util.arrayCopy(image3, (pointer3), buf, (short)0, datalen);
-				apdu.sendBytes((short)0, datalen);
-				pointer3+=  (short)255;
-				lenback3 -= (short)(255);
-			}else{
-				if(lenback1==0){
-					if(lenback2 <255){
-						datalen = lenback2;
-					}
-					apdu.setOutgoing();
+		apdu.setOutgoing();
 					apdu.setOutgoingLength((short)255);
-					Util.arrayCopy(image2, (pointer2), buf, (short)0, datalen);
-					apdu.sendBytes((short)0, datalen);
-					pointer2+=  (short)255;
-					lenback2 -= (short)(255);
-				}else{
-					if(lenback1 <255){
-						datalen = lenback1;
-					}
-					apdu.setOutgoing();
-					apdu.setOutgoingLength((short)255);
-					Util.arrayCopy(image1, (pointer1), buf, (short)0, datalen);
-					apdu.sendBytes((short)0, datalen);
-					pointer1+=  (short)255;
-					lenback1 -= (short)(255);
-					}
-				}
-        	}
+					Util.arrayCopy(image1, (short)0, buf, (short)0, imagelen1);
+					apdu.sendBytes((short)0, imagelen1);
+        
 	    }
 	    
     private void check_pin(APDU apdu, short len) {
@@ -598,7 +535,9 @@ public class SCard extends Applet
 		Util.arrayCopy(tempBuffer, (short)0, sothe, (short)0,sothelen);
 		Util.arrayCopy(tempBuffer, (short)(t1+1), hoten, (short)0,hotenlen);
 		Util.arrayCopy(tempBuffer, (short)(t2+1), ngaysinh, (short)0,ngaysinhlen);
-	
+		encrypt_AesCipher(apdu,sothe,sothelen);
+		encrypt_AesCipher(apdu,hoten,hotenlen);
+		encrypt_AesCipher(apdu,ngaysinh,ngaysinhlen);
     }
     
     private void getsodu(APDU apdu){
